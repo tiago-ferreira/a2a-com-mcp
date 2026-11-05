@@ -1,0 +1,13 @@
+[project]
+name = "agente-a2a-salas"
+version = "1.0.0"
+description = "Agente servidor A2A e host MCP para reserva de salas da Hill Valley Tech"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp==2.3.0",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

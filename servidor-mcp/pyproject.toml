@@ -1,0 +1,13 @@
+[project]
+name = "servidor-mcp-salas"
+version = "1.0.0"
+description = "Servidor MCP em Streamable HTTP para o domínio de reservas de salas da Hill Valley Tech"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp==2.3.0",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

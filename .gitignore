@@ -1,6 +1,91 @@
-.env
+# ==============================================================================
+# Git Ignore - A Ponte (A2A com MCP)
+# ==============================================================================
+
+# Ambientes virtuais e pacotes Python
 .venv/
+venv/
+ENV/
+env/
 __pycache__/
-node_modules/
+*.py[cod]
+*$py.class
+*.so
+build/
+develop-eggs/
 dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testes, linter e cobertura
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ==============================================================================
+# Segurança, Segredos e Dados Pessoais / Credenciais
+# ==============================================================================
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+*.secret
+secrets/
+credentials.json
+client_secret*.json
+REQUEST_STATE_SECRET*
+
+# Logs e arquivos temporários de execução
 *.log
+logs/
+*.tmp
+tmp/
+*.pid
+
+# ==============================================================================
+# IDEs e Editores de Código
+# ==============================================================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# ==============================================================================
+# Arquivos de Sistema Operacional
+# ==============================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==============================================================================
+# Node / Frontend (caso aplicável)
+# ==============================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
