@@ -72,10 +72,13 @@ for r in RESERVAS:
 
 def get_secret() -> bytes:
     secret = os.environ.get("REQUEST_STATE_SECRET", "")
-    if not secret:
-        # Fallback de segurança para testes/desenvolvimento
-        secret = "chave-padrao-com-no-minimo-32-bytes-de-extensao-para-hmac"
-    return secret.encode("utf-8")
+    secret_bytes = secret.encode("utf-8")
+    if len(secret_bytes) < 32:
+        raise RuntimeError(
+            "REQUEST_STATE_SECRET ausente ou com menos de 32 bytes. "
+            "Gere uma com: python3 -c \"import secrets; print(secrets.token_hex(32))\""
+        )
+    return secret_bytes
 
 
 def b64url_encode(data: bytes) -> str:
@@ -700,5 +703,10 @@ def run_server(porta: int = 7301):
 
 
 if __name__ == "__main__":
+    try:
+        get_secret()  # Falha na inicialização se o segredo for inválido
+    except RuntimeError as e:
+        sys.stderr.write(f"Erro: {e}\n")
+        sys.exit(1)
     porta = int(os.environ.get("MCP_PORT", 7301))
     run_server(porta)
